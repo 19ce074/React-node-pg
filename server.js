@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-const path = __dirname + '/app/views/';
+const path = '/home/vivek/Projects/node-express-sequelize-postgresql/Trainee_Frontend';
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const db = require("./app/models");
+const db = require("./Trainee_backend/models");
 
 db.sequelize.sync();
 
@@ -24,7 +24,7 @@ app.get('/', function (req,res) {
   res.sendFile(path + "index.html");
 });
 
-require("./app/routes/turorial.routes.js")(app);
+require("./Trainee_backend/routes/turorial.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
